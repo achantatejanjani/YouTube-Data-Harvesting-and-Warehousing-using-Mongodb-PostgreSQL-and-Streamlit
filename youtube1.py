@@ -20,6 +20,7 @@ youtube=Api_connect()
 
 
 #get channel information
+
 def get_channel_info(channel_id):
     request=youtube.channels().list(
                     part= "snippet,ContentDetails,statistics",
@@ -42,7 +43,8 @@ def channel_details(channel_id, coll1):
     ch_details = get_channel_info(channel_id, coll1)
 
 
-    #get video ids
+#get video ids
+
 def get_videos_ids(channel_id):
     video_ids=[]
     response=youtube.channels().list(id=channel_id,part='contentDetails').execute()
@@ -65,6 +67,7 @@ def get_videos_ids(channel_id):
 
 
 #get video information
+
 def get_video_info(video_ids):
     video_data=[]
     for video_id in video_ids:
@@ -491,6 +494,7 @@ def show_comments_table():
 
     return df3
 
+#Streamlit 
 
 import streamlit as st
 import pandas as pd
